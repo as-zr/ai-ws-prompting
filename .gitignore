@@ -1,0 +1,26 @@
+# Internal / trainer-only (keep local, never push)
+emails/
+content/confluence-*.md
+content/dry-run-checklist.md
+content/session-notes.md
+content/pre-session-mail.md
+
+# Corporate template (local only)
+template.pptx
+
+# Generated decks and build artifacts
+output/
+*.pptx
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Local exercise runtime (download via setup script)
+exercises/node.exe
+*.exe
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
