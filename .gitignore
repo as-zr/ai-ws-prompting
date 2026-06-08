@@ -15,8 +15,8 @@ __pycache__/
 *.pyc
 .pytest_cache/
 
-# Local exercise runtime (download via setup script)
-exercises/node.exe
+# Local exercise runtime (auto-download via run-tests.bat)
+exercises/bun.exe
 *.exe
 
 # OS / IDE
