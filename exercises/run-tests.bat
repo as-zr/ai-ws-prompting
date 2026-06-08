@@ -52,9 +52,15 @@ set "BUN_VERSION=bun-v1.2.18"
 set "BUN_ZIP=bun-windows-x64.zip"
 set "BUN_URL=https://github.com/oven-sh/bun/releases/download/%BUN_VERSION%/%BUN_ZIP%"
 
-echo Lade Bun einmalig per curl ...
-curl -fsSL -o "%BUN_ZIP%" "%BUN_URL%"
-if errorlevel 1 exit /b 1
+echo.
+echo Bun wird heruntergeladen (einmalig) ...
+curl -fL --progress-bar -o "%BUN_ZIP%" "%BUN_URL%" -w "Download: %%{percent_downloaded}%%\n"
+if errorlevel 1 (
+    echo Download fehlgeschlagen.
+    del "%BUN_ZIP%" 2>nul
+    exit /b 1
+)
+echo.
 
 tar -xf "%BUN_ZIP%"
 if exist "bun-windows-x64\bun.exe" move /Y "bun-windows-x64\bun.exe" "%ROOT%bun.exe" >nul

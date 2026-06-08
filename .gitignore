@@ -15,9 +15,13 @@ __pycache__/
 *.pyc
 .pytest_cache/
 
-# Local exercise runtime (auto-download via run-tests.bat)
+# Exercise runtime & download artifacts (auto-download via run-tests.bat)
 exercises/bun.exe
-*.exe
+exercises/bun.exe.*
+exercises/node.exe
+exercises/bun-windows-x64.zip
+exercises/bun-windows-x64/
+exercises/*.zip
 
 # OS / IDE
 .DS_Store
