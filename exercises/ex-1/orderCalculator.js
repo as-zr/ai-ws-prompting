@@ -37,3 +37,4 @@ module.exports = {
   FREE_SHIPPING_THRESHOLD,
   STANDARD_SHIPPING,
 };
+

@@ -1,7 +1,8 @@
 @echo off
 setlocal EnableDelayedExpansion
 set "ROOT=%~dp0"
-cd /d "%ROOT%sample"
+set "EX_DIR=ex-1"
+cd /d "%ROOT%%EX_DIR%"
 
 rem 1) Lokales bun.exe  2) bun im PATH  3) einmalig per curl  4) Node-Fallback
 set "RUNNER="
@@ -28,7 +29,7 @@ if not defined RUNNER (
     )
 )
 
-cd /d "%ROOT%sample"
+cd /d "%ROOT%%EX_DIR%"
 
 if defined RUNNER if "!MODE!"=="bun" (
     "!RUNNER!" test orderCalculator.test.js
