@@ -237,6 +237,47 @@
                 background: rgba(217, 119, 87, 0.15);
             }
 
+            .mental-model-box {
+                padding: 28px 32px;
+                border-radius: 6px;
+                font-size: var(--font-size-base);
+                font-weight: 500;
+                line-height: 1.7;
+                margin: 0;
+            }
+
+            .mental-model-box--myth {
+                background: rgba(217, 119, 87, 0.1);
+                border: 2px solid rgba(217, 119, 87, 0.35);
+                border-left: 6px solid var(--accent);
+            }
+
+            .mental-model-box--myth h3 {
+                color: #b85c3a;
+            }
+
+            .mental-model-box--reality {
+                background: rgba(42, 139, 122, 0.08);
+                border: 2px solid rgba(42, 139, 122, 0.35);
+                border-left: 6px solid #2a8b7a;
+            }
+
+            .mental-model-box--reality h3 {
+                color: #2a8b7a;
+            }
+
+            .mental-model-box--reality .mental-model-example {
+                color: #3d6b62;
+                font-size: 22px;
+            }
+
+            .mental-model-box--consequence {
+                background: rgba(26, 26, 26, 0.04);
+                border: 2px solid rgba(26, 26, 26, 0.1);
+                border-left: 6px solid var(--primary);
+                margin-top: 32px;
+            }
+
             .grid-2 {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
@@ -508,17 +549,15 @@
                 background: #fafafa;
             }
 
-            .prompt-flow-item--system {
-                border-left-color: #d97757;
-            }
-            .prompt-flow-item--user {
-                border-left-color: #d87f3a;
-            }
-            .prompt-flow-item--history {
-                border-left-color: #7c3aed;
-            }
+            .prompt-flow-item--system,
             .prompt-flow-item--context {
+                border-left-color: #d97757;
+                background: rgba(217, 119, 87, 0.06);
+            }
+            .prompt-flow-item--user,
+            .prompt-flow-item--history {
                 border-left-color: #2a8b7a;
+                background: rgba(42, 139, 122, 0.06);
             }
 
             .prompt-flow-item-label {
@@ -529,17 +568,13 @@
                 min-width: 108px;
             }
 
-            .prompt-flow-item--system .prompt-flow-item-label {
-                color: #d97757;
-            }
-            .prompt-flow-item--user .prompt-flow-item-label {
-                color: #d87f3a;
-            }
-            .prompt-flow-item--history .prompt-flow-item-label {
-                color: #7c3aed;
-            }
+            .prompt-flow-item--system .prompt-flow-item-label,
             .prompt-flow-item--context .prompt-flow-item-label {
-                color: #2a8b7a;
+                color: #b85a3c;
+            }
+            .prompt-flow-item--user .prompt-flow-item-label,
+            .prompt-flow-item--history .prompt-flow-item-label {
+                color: #1f6b5d;
             }
 
             .prompt-flow-item-desc {
@@ -571,21 +606,13 @@
                 line-height: 1.2;
             }
 
-            .prompt-flow-chip--accent {
+            .prompt-flow-chip--ide {
                 background: rgba(217, 119, 87, 0.14);
                 color: #b85a3c;
             }
-            .prompt-flow-chip--amber {
+            .prompt-flow-chip--ide-alt {
                 background: rgba(216, 127, 58, 0.14);
                 color: #a65f24;
-            }
-            .prompt-flow-chip--teal {
-                background: rgba(42, 139, 122, 0.14);
-                color: #1f6b5d;
-            }
-            .prompt-flow-chip--purple {
-                background: rgba(124, 58, 237, 0.12);
-                color: #5b2db8;
             }
 
             .prompt-flow-merge {
@@ -637,10 +664,10 @@
             .prompt-flow-stage--output {
                 background: linear-gradient(
                     160deg,
-                    rgba(42, 139, 122, 0.1) 0%,
+                    rgba(26, 26, 26, 0.04) 0%,
                     #fff 55%
                 );
-                border: 2px solid #2a8b7a;
+                border: 2px solid var(--primary);
             }
 
             .prompt-flow-stage-num {
@@ -661,7 +688,7 @@
             }
 
             .prompt-flow-stage--output .prompt-flow-stage-title {
-                color: #1f6b5d;
+                color: var(--primary);
             }
 
             .prompt-flow-stage-text {
@@ -685,25 +712,51 @@
                 font-weight: 700;
             }
 
-            .prompt-flow-formula .f-system {
-                color: #d97757;
-            }
-            .prompt-flow-formula .f-user {
-                color: #d87f3a;
-            }
-            .prompt-flow-formula .f-history {
-                color: #7c3aed;
-            }
+            .prompt-flow-formula .f-system,
             .prompt-flow-formula .f-context {
-                color: #2a8b7a;
+                color: #b85a3c;
+            }
+            .prompt-flow-formula .f-user,
+            .prompt-flow-formula .f-history {
+                color: #1f6b5d;
             }
 
             .prompt-flow-arrow-down {
                 text-align: center;
                 font-size: 28px;
-                color: #2a8b7a;
+                color: var(--text-light);
                 line-height: 1;
                 margin: -4px 0;
+            }
+
+            .prompt-flow-legend {
+                display: flex;
+                gap: 24px;
+                margin: 0 0 16px 0;
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+            .prompt-flow-legend span {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .prompt-flow-legend span::before {
+                content: "";
+                width: 12px;
+                height: 12px;
+                border-radius: 3px;
+                flex-shrink: 0;
+            }
+
+            .prompt-flow-legend--user::before {
+                background: #2a8b7a;
+            }
+
+            .prompt-flow-legend--ide::before {
+                background: #d97757;
             }
 
             .prompt-flow-note {
@@ -2010,31 +2063,6 @@
                             → KI: Random Code. Vielleicht falsch. Vielleicht
                             richtig. Wer weiß?
                         </p>
-                        <div
-                            style="height: 30px"
-                            data-om-id="94b23303:20"
-                        ></div>
-                        <p
-                            style="
-                                font-size: 32px;
-                                color: var(--accent);
-                                font-weight: 600;
-                                margin: 30px 0;
-                            "
-                            data-om-id="94b23303:21"
-                        >
-                            „Erkläre mein Refactoring"
-                        </p>
-                        <p
-                            style="
-                                font-size: 28px;
-                                color: var(--text-light);
-                                margin: 30px 0;
-                            "
-                            data-om-id="94b23303:22"
-                        >
-                            → KI: Verstanden. (Aber hat es wirklich?)
-                        </p>
                     </div>
                     <div
                         class="accent-box"
@@ -2096,8 +2124,8 @@
                         style="margin-top: 60px; font-size: 26px"
                         data-om-id="94b23303:37"
                     >
-                        Ziel: Du verlässt diesen Raum und promptest sofort
-                        besser. Mit Selbstvertrauen.
+                        Ziel: Klar prompten. Strukturiert arbeiten. Ergebnisse
+                        prüfen.
                     </div>
                 </div>
                 <div class="footer" data-om-id="94b23303:38">
@@ -2110,53 +2138,122 @@
             <!-- Slide 4: Kernbotschaft -->
             <section
                 data-label="Kernbotschaft"
-                class="accent"
+                class="light"
                 data-om-id="94b23303:40"
                 data-screen-label="04 Kernbotschaft"
                 data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
                 data-deck-slide="3"
                 data-deck-active=""
             >
-                <div
-                    class="content"
-                    style="
-                        text-align: center;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        align-items: center;
-                    "
-                    data-om-id="94b23303:41"
-                >
-                    <h1
+                <div class="content" data-om-id="94b23303:41">
+                    <p
                         style="
-                            font-size: 64px;
-                            line-height: 1.1;
-                            margin-bottom: 40px;
-                            max-width: 1200px;
+                            font-size: 20px;
+                            font-weight: 700;
+                            letter-spacing: 0.08em;
+                            text-transform: uppercase;
+                            color: var(--accent);
+                            margin: 0 0 12px 0;
                         "
+                        data-om-id="94b23303:41a"
+                    >
+                        Das wichtigste Mental Model
+                    </p>
+                    <h2
+                        style="margin-bottom: 12px"
                         data-om-id="94b23303:42"
                     >
                         KI ist kein Zauberstab
-                    </h1>
+                    </h2>
                     <p
-                        style="
-                            font-size: 32px;
-                            line-height: 1.6;
-                            max-width: 1000px;
-                            color: rgba(255, 255, 255, 0.9);
-                        "
+                        class="craft-subtitle"
+                        style="margin-bottom: 36px"
                         data-om-id="94b23303:43"
                     >
-                        Gute Ergebnisse entstehen durch
-                        <strong data-om-id="94b23303:44"
-                            >klaren Kontext, konkrete Ziele und verständliche
-                            Anforderungen</strong
-                        >. Nicht weniger.
+                        KI kann deine Gedanken nicht lesen —
+                        <strong style="color: var(--primary)"
+                            >nur deine Worte</strong
+                        >. Das ist der Hebel.
                     </p>
+
+                    <div
+                        class="grid-2"
+                        style="margin-top: 0"
+                        data-om-id="94b23303:43a"
+                    >
+                        <div
+                            class="mental-model-box mental-model-box--myth"
+                            data-om-id="94b23303:43b"
+                        >
+                            <h3
+                                style="font-size: 24px; margin: 0 0 16px 0"
+                                data-om-id="94b23303:43c"
+                            >
+                                Was Devs oft denken
+                            </h3>
+                            <p style="margin: 0 0 16px 0" data-om-id="94b23303:43d">
+                                „Ich schreibe einen kurzen Prompt, und KI
+                                versteht automatisch, was ich wirklich brauche."
+                            </p>
+                            <p
+                                style="
+                                    margin: 0;
+                                    font-size: 22px;
+                                    color: var(--text-light);
+                                "
+                                data-om-id="94b23303:43e"
+                            >
+                                Das funktioniert nur, wenn die Aufgabe trivial
+                                ist.
+                            </p>
+                        </div>
+                        <div
+                            class="mental-model-box mental-model-box--reality"
+                            data-om-id="94b23303:43f"
+                        >
+                            <h3
+                                style="font-size: 24px; margin: 0 0 16px 0"
+                                data-om-id="94b23303:43g"
+                            >
+                                Was wirklich passiert
+                            </h3>
+                            <p style="margin: 0 0 16px 0" data-om-id="94b23303:43h">
+                                KI liest
+                                <strong>deine exakten Worte</strong> und
+                                antwortet auf das, was du geschrieben hast —
+                                nicht auf das, was du denkst.
+                            </p>
+                            <p
+                                class="mental-model-example"
+                                style="margin: 0 0 8px 0"
+                                data-om-id="94b23303:43i"
+                            >
+                                „Mach das schneller" → KI kennt das Problem
+                                nicht.
+                            </p>
+                            <p
+                                class="mental-model-example"
+                                style="margin: 0"
+                                data-om-id="94b23303:43j"
+                            >
+                                „Mach Payload kleiner" → KI weiß nicht, welche
+                                Felder optional sind.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="mental-model-box mental-model-box--consequence"
+                        style="margin-bottom: 0"
+                        data-om-id="94b23303:44"
+                    >
+                        <strong data-om-id="94b23303:44a">Merke:</strong>
+                        KIs reagieren nur auf deinen Input — sie lesen keine
+                        Gedanken und können nicht zaubern.
+                    </div>
                 </div>
                 <div class="footer" data-om-id="94b23303:45">
-                    <span class="logo" data-om-id="94b23303:46"
+                    <span class="logo dark-text" data-om-id="94b23303:46"
                         >ZwickRoell</span
                     >
                 </div>
@@ -2187,6 +2284,18 @@
                         >
                         wird ans Modell geschickt.
                     </p>
+
+                    <div
+                        class="prompt-flow-legend"
+                        data-om-id="94b23303:71c"
+                    >
+                        <span class="prompt-flow-legend--user"
+                            >Du steuerst</span
+                        >
+                        <span class="prompt-flow-legend--ide"
+                            >IDE &amp; App liefern</span
+                        >
+                    </div>
 
                     <div class="prompt-flow" data-om-id="94b23303:72">
                         <div class="prompt-flow-col" data-om-id="94b23303:73">
@@ -2291,24 +2400,24 @@
                                         in den angereicherten Prompt ein
                                         <div class="prompt-flow-chips">
                                             <span
-                                                class="prompt-flow-chip prompt-flow-chip--teal"
+                                                class="prompt-flow-chip prompt-flow-chip--ide"
                                                 >Offene Datei &amp;
                                                 Markierung</span
                                             >
                                             <span
-                                                class="prompt-flow-chip prompt-flow-chip--accent"
+                                                class="prompt-flow-chip prompt-flow-chip--ide-alt"
                                                 >RAG / Docs</span
                                             >
                                             <span
-                                                class="prompt-flow-chip prompt-flow-chip--amber"
+                                                class="prompt-flow-chip prompt-flow-chip--ide"
                                                 >DB Queries</span
                                             >
                                             <span
-                                                class="prompt-flow-chip prompt-flow-chip--teal"
+                                                class="prompt-flow-chip prompt-flow-chip--ide-alt"
                                                 >Git History</span
                                             >
                                             <span
-                                                class="prompt-flow-chip prompt-flow-chip--purple"
+                                                class="prompt-flow-chip prompt-flow-chip--ide"
                                                 >Logs &amp; Errors</span
                                             >
                                         </div>
@@ -2432,10 +2541,13 @@
                         class="accent-box prompt-flow-note"
                         data-om-id="94b23303:115"
                     >
-                        💡 Du steuerst vor allem
-                        <strong>Dein Prompt</strong> und
-                        <strong>Context</strong> (Datei markieren, relevante
-                        Infos mitgeben). Der Rest kommt von IDE &amp; App.
+                        💡 Du steuerst
+                        <strong style="color: #1f6b5d">Prompt</strong> und
+                        <strong style="color: #1f6b5d">History</strong> —
+                        IDE &amp; App liefern
+                        <strong style="color: #b85a3c">System Prompt</strong>,
+                        <strong style="color: #b85a3c">Context</strong> und
+                        ihren eigenen Flair.
                     </div>
                 </div>
                 <div class="footer" data-om-id="94b23303:116">
@@ -2596,7 +2708,6 @@
                             >Die KI spiegelt die Qualität deiner
                             Eingabe.</strong
                         >
-                        Nicht mehr, nicht weniger.
                     </div>
                 </div>
                 <div class="footer" data-om-id="94b23303:67">
@@ -3639,14 +3750,1205 @@
                 </div>
             </section>
 
-            <!-- Slide 8: Review & Vertrauen -->
+            <!-- Slide 9: 8 Arbeitsweisen Intro -->
+            <section
+                data-label="8 konkrete Arbeitsweisen"
+                class="dark"
+                data-om-id="94b23303:212"
+                data-screen-label="11 8 konkrete Arbeitsweisen"
+                data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
+                data-deck-slide="10"
+            >
+                <div class="content techniques-intro" data-om-id="94b23303:213">
+                    <div
+                        class="techniques-intro-header"
+                        data-om-id="94b23303:213a"
+                    >
+                        <div class="section-label" data-om-id="94b23303:213b">
+                            ⚡ Situationsbasiert
+                        </div>
+                        <h2
+                            class="techniques-intro-title"
+                            data-om-id="94b23303:214"
+                        >
+                            <span class="num">8</span> konkrete Arbeitsweisen
+                        </h2>
+                        <p
+                            class="techniques-intro-subtitle"
+                            data-om-id="94b23303:215"
+                        >
+                            Je nach Situation brauchst du eine andere
+                            Strategie.<br data-om-id="94b23303:216" />
+                            Hier sind die 8 wichtigsten für deinen Alltag.
+                        </p>
+                    </div>
+
+                    <div class="techniques-overview" data-om-id="94b23303:215a">
+                        <div
+                            class="technique-chip technique-chip--1"
+                            data-om-id="94b23303:215b"
+                        >
+                            <p class="technique-chip-num">01</p>
+                            <p class="technique-chip-name">Plan-First</p>
+                            <p class="technique-chip-when">
+                                Größere Features, mehrere Dateien
+                            </p>
+                        </div>
+                        <div
+                            class="technique-chip technique-chip--2"
+                            data-om-id="94b23303:215c"
+                        >
+                            <p class="technique-chip-num">02</p>
+                            <p class="technique-chip-name">Test-Driven</p>
+                            <p class="technique-chip-when">
+                                Neue Logik, Regression vermeiden
+                            </p>
+                        </div>
+                        <div
+                            class="technique-chip technique-chip--3"
+                            data-om-id="94b23303:215d"
+                        >
+                            <p class="technique-chip-num">03</p>
+                            <p class="technique-chip-name">Review-First</p>
+                            <p class="technique-chip-when">
+                                Legacy-Code, hohes Risiko
+                            </p>
+                        </div>
+                        <div
+                            class="technique-chip technique-chip--4"
+                            data-om-id="94b23303:215e"
+                        >
+                            <p class="technique-chip-num">04</p>
+                            <p class="technique-chip-name">Rubber-Duck</p>
+                            <p class="technique-chip-when">
+                                Bugs, flaky Tests, Symptome
+                            </p>
+                        </div>
+                        <div
+                            class="technique-chip technique-chip--5"
+                            data-om-id="94b23303:215f"
+                        >
+                            <p class="technique-chip-num">05</p>
+                            <p class="technique-chip-name">
+                                Explain-Before-Change
+                            </p>
+                            <p class="technique-chip-when">
+                                Unbekannter Code, Klarheit nötig
+                            </p>
+                        </div>
+                        <div
+                            class="technique-chip technique-chip--6"
+                            data-om-id="94b23303:215g"
+                        >
+                            <p class="technique-chip-num">06</p>
+                            <p class="technique-chip-name">Spec-Driven</p>
+                            <p class="technique-chip-when">
+                                Klar definierte, testbare Features
+                            </p>
+                        </div>
+                        <div
+                            class="technique-chip technique-chip--7"
+                            data-om-id="94b23303:215h"
+                        >
+                            <p class="technique-chip-num">07</p>
+                            <p class="technique-chip-name">Few-Shot</p>
+                            <p class="technique-chip-when">
+                                Konsistenz mit bestehenden Patterns
+                            </p>
+                        </div>
+                        <div
+                            class="technique-chip technique-chip--8"
+                            data-om-id="94b23303:215i"
+                        >
+                            <p class="technique-chip-num">08</p>
+                            <p class="technique-chip-name">Red-Team</p>
+                            <p class="technique-chip-when">
+                                Vor dem Merge, kritischer Code
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer" data-om-id="94b23303:217">
+                    <span class="logo" data-om-id="94b23303:218"
+                        >ZwickRoell</span
+                    >
+                </div>
+            </section>
+
+            <!-- Slide 10: Technik 1 - Plan-First -->
+            <section
+                data-label="1. Plan-First"
+                data-om-id="94b23303:219"
+                data-screen-label="12 1. Plan-First"
+                data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
+                data-deck-slide="11"
+            >
+                <div
+                    class="content technique-slide technique-slide--1"
+                    data-om-id="94b23303:220"
+                >
+                    <div class="technique-header" data-om-id="94b23303:220a">
+                        <div
+                            class="technique-header-top"
+                            data-om-id="94b23303:221"
+                        >
+                            <span
+                                class="technique-badge"
+                                data-om-id="94b23303:221a"
+                                >01</span
+                            >
+                            <span
+                                class="technique-label"
+                                data-om-id="94b23303:221b"
+                                >Plan-First</span
+                            >
+                        </div>
+                        <h2 class="technique-tagline" data-om-id="94b23303:222">
+                            Größere Features: erst planen, dann coden
+                        </h2>
+                    </div>
+                    <div class="technique-panels" data-om-id="94b23303:223">
+                        <div class="technique-panel" data-om-id="94b23303:224">
+                            <h3
+                                class="technique-panel-title"
+                                data-om-id="94b23303:225"
+                            >
+                                Wann?
+                            </h3>
+                            <p
+                                class="technique-panel-text"
+                                data-om-id="94b23303:226"
+                            >
+                                Mehrere Dateien, unklarer Lösungsweg, komplexes
+                                Feature
+                            </p>
+                        </div>
+                        <div class="technique-panel" data-om-id="94b23303:227">
+                            <h3
+                                class="technique-panel-title"
+                                data-om-id="94b23303:228"
+                            >
+                                Wie?
+                            </h3>
+                            <ol
+                                class="technique-steps"
+                                data-om-id="94b23303:229"
+                            >
+                                <li data-om-id="94b23303:230">Plan anfragen</li>
+                                <li data-om-id="94b23303:231">Du prüfst</li>
+                                <li data-om-id="94b23303:231a">
+                                    Code Step by Step
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="technique-prompt" data-om-id="94b23303:232">
+                        <p
+                            class="technique-prompt-label"
+                            data-om-id="94b23303:233"
+                        >
+                            Beispiel-Prompt
+                        </p>
+                        <p
+                            class="technique-prompt-text"
+                            data-om-id="94b23303:233a"
+                        >
+                            „Plan für Feature X in Datei Y. 8 nummerierte
+                            Schritte. Kein Code. Risiken?"
+                        </p>
+                    </div>
+                </div>
+                <div class="footer" data-om-id="94b23303:234">
+                    <span class="logo dark-text" data-om-id="94b23303:235"
+                        >ZwickRoell</span
+                    >
+                </div>
+            </section>
+
+            <!-- Slide 11: Technik 2 - TDD -->
+            <section
+                data-label="2. TDD"
+                data-om-id="94b23303:236"
+                data-screen-label="13 2. TDD"
+                data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
+                data-deck-slide="12"
+            >
+                <div
+                    class="content technique-slide technique-slide--2"
+                    data-om-id="94b23303:237"
+                >
+                    <div class="technique-header" data-om-id="94b23303:237a">
+                        <div
+                            class="technique-header-top"
+                            data-om-id="94b23303:238"
+                        >
+                            <span
+                                class="technique-badge"
+                                data-om-id="94b23303:238a"
+                                >02</span
+                            >
+                            <span
+                                class="technique-label"
+                                data-om-id="94b23303:238b"
+                                >Test-Driven</span
+                            >
+                        </div>
+                        <h2 class="technique-tagline" data-om-id="94b23303:239">
+                            Tests zuerst, dann Implementierung
+                        </h2>
+                    </div>
+                    <div class="technique-panels" data-om-id="94b23303:240">
+                        <div class="technique-panel" data-om-id="94b23303:241">
+                            <h3
+                                class="technique-panel-title"
+                                data-om-id="94b23303:242"
+                            >
+                                Wann?
+                            </h3>
+                            <p
+                                class="technique-panel-text"
+                                data-om-id="94b23303:243"
+                            >
+                                Neue Logik, wo Tests fehlen, Regression
+                                vermeiden
+                            </p>
+                        </div>
+                        <div class="technique-panel" data-om-id="94b23303:244">
+                            <h3
+                                class="technique-panel-title"
+                                data-om-id="94b23303:245"
+                            >
+                                Wie?
+                            </h3>
+                            <ol
+                                class="technique-steps"
+                                data-om-id="94b23303:246"
+                            >
+                                <li data-om-id="94b23303:247">
+                                    Tests (happy, edge, error)
+                                </li>
+                                <li data-om-id="94b23303:248">
+                                    Implementierung
+                                </li>
+                                <li data-om-id="94b23303:248a">
+                                    Grün = fertig
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="technique-prompt" data-om-id="94b23303:249">
+                        <p
+                            class="technique-prompt-label"
+                            data-om-id="94b23303:250"
+                        >
+                            Beispiel-Prompt
+                        </p>
+                        <p
+                            class="technique-prompt-text"
+                            data-om-id="94b23303:250a"
+                        >
+                            „Tests für calculateTotal. AAA-Format. Happy, leer,
+                            negativ. node:test. Kein Code außer Tests."
+                        </p>
+                    </div>
+                </div>
+                <div class="footer" data-om-id="94b23303:251">
+                    <span class="logo dark-text" data-om-id="94b23303:252"
+                        >ZwickRoell</span
+                    >
+                </div>
+            </section>
+
+            <!-- Slide 12: Technik 3 - Review-First -->
+            <section
+                data-label="3. Review-First"
+                data-om-id="94b23303:253"
+                data-screen-label="14 3. Review-First"
+                data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
+                data-deck-slide="13"
+            >
+                <div
+                    class="content technique-slide technique-slide--3"
+                    data-om-id="94b23303:254"
+                >
+                    <div class="technique-header" data-om-id="94b23303:254a">
+                        <div
+                            class="technique-header-top"
+                            data-om-id="94b23303:255"
+                        >
+                            <span
+                                class="technique-badge"
+                                data-om-id="94b23303:255a"
+                                >03</span
+                            >
+                            <span
+                                class="technique-label"
+                                data-om-id="94b23303:255b"
+                                >Review-First</span
+                            >
+                        </div>
+                        <h2 class="technique-tagline" data-om-id="94b23303:256">
+                            Legacy-Code: erst reviewen, dann ändern
+                        </h2>
+                    </div>
+                    <div class="technique-panels" data-om-id="94b23303:257">
+                        <div class="technique-panel" data-om-id="94b23303:258">
+                            <h3
+                                class="technique-panel-title"
+                                data-om-id="94b23303:259"
+                            >
+                                Wann?
+                            </h3>
+                            <p
+                                class="technique-panel-text"
+                                data-om-id="94b23303:260"
+                            >
+                                Fremder Code, hohes Risiko, unklare Intent
+                            </p>
+                        </div>
+                        <div class="technique-panel" data-om-id="94b23303:261">
+                            <h3
+                                class="technique-panel-title"
+                                data-om-id="94b23303:262"
+                            >
+                                Wie?
+                            </h3>
+                            <ol
+                                class="technique-steps"
+                                data-om-id="94b23303:263"
+                            >
+                                <li data-om-id="94b23303:264">
+                                    Review (Risiken, Tests, Intent)
+                                </li>
+                                <li data-om-id="94b23303:265">
+                                    Du fragst nach
+                                </li>
+                                <li data-om-id="94b23303:265a">
+                                    Dann gezielte Änderung
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="technique-prompt" data-om-id="94b23303:266">
+                        <p
+                            class="technique-prompt-label"
+                            data-om-id="94b23303:267"
+                        >
+                            Beispiel-Prompt
+                        </p>
+                        <p
+                            class="technique-prompt-text"
+                            data-om-id="94b23303:267a"
+                        >
+                            „Review Code-Block. Risiken? Fehlende Tests? Intent?
+                            Kein Code ändern."
+                        </p>
+                    </div>
+                </div>
+                <div class="footer" data-om-id="94b23303:268">
+                    <span class="logo dark-text" data-om-id="94b23303:269"
+                        >ZwickRoell</span
+                    >
+                </div>
+            </section>
+
+            <!-- Slide 13: Technik 4 - Rubber-Duck -->
+            <section
+                data-label="4. Rubber-Duck"
+                data-om-id="94b23303:270"
+                data-screen-label="15 4. Rubber-Duck"
+                data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
+                data-deck-slide="14"
+            >
+                <div
+                    class="content technique-slide technique-slide--4"
+                    data-om-id="94b23303:271"
+                >
+                    <div class="technique-header" data-om-id="94b23303:271a">
+                        <div
+                            class="technique-header-top"
+                            data-om-id="94b23303:272"
+                        >
+                            <span
+                                class="technique-badge"
+                                data-om-id="94b23303:272a"
+                                >04</span
+                            >
+                            <span
+                                class="technique-label"
+                                data-om-id="94b23303:272b"
+                                >Rubber-Duck</span
+                            >
+                        </div>
+                        <h2 class="technique-tagline" data-om-id="94b23303:273">
+                            Bugs: Symptom beschreiben, Hypothesen sammeln
+                        </h2>
+                    </div>
+                    <div class="technique-panels" data-om-id="94b23303:274">
+                        <div class="technique-panel" data-om-id="94b23303:275">
+                            <h3
+                                class="technique-panel-title"
+                                data-om-id="94b23303:276"
+                            >
+                                Wann?
+                            </h3>
+                            <p
+                                class="technique-panel-text"
+                                data-om-id="94b23303:277"
+                            >
+                                Bug, flaky Test, unklares Verhalten,
+                                merkwürdiges Symptom
+                            </p>
+                        </div>
+                        <div class="technique-panel" data-om-id="94b23303:278">
+                            <h3
+                                class="technique-panel-title"
+                                data-om-id="94b23303:279"
+                            >
+                                Wie?
+                            </h3>
+                            <ol
+                                class="technique-steps"
+                                data-om-id="94b23303:280"
+                            >
+                                <li data-om-id="94b23303:281">
+                                    Symptom + Kontext
+                                </li>
+                                <li data-om-id="94b23303:282">
+                                    Top-Hypothesen
+                                </li>
+                                <li data-om-id="94b23303:282a">Prüf-Steps</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="technique-prompt" data-om-id="94b23303:283">
+                        <p
+                            class="technique-prompt-label"
+                            data-om-id="94b23303:284"
+                        >
+                            Beispiel-Prompt
+                        </p>
+                        <p
+                            class="technique-prompt-text"
+                            data-om-id="94b23303:284a"
+                        >
+                            „calculateTotal liefert 0 statt Exception. Letzte
+                            Änderung: Rabatt. Top-3 Hypothesen + Prüf-Steps.
+                            Kein Code."
+                        </p>
+                    </div>
+                </div>
+                <div class="footer" data-om-id="94b23303:285">
+                    <span class="logo dark-text" data-om-id="94b23303:286"
+                        >ZwickRoell</span
+                    >
+                </div>
+            </section>
+
+            <!-- Slide 14: Technik 5 - Explain-Before-Change -->
+            <section
+                data-label="5. Explain-Before-Change"
+                data-om-id="94b23303:287"
+                data-screen-label="16 5. Explain-Before-Change"
+                data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
+                data-deck-slide="15"
+            >
+                <div
+                    class="content technique-slide technique-slide--5"
+                    data-om-id="94b23303:288"
+                >
+                    <div class="technique-header" data-om-id="94b23303:288a">
+                        <div
+                            class="technique-header-top"
+                            data-om-id="94b23303:289"
+                        >
+                            <span
+                                class="technique-badge"
+                                data-om-id="94b23303:289a"
+                                >05</span
+                            >
+                            <span
+                                class="technique-label"
+                                data-om-id="94b23303:289b"
+                                >Explain-Before-Change</span
+                            >
+                        </div>
+                        <h2 class="technique-tagline" data-om-id="94b23303:290">
+                            Verständnis vor der Änderung
+                        </h2>
+                    </div>
+                    <div class="technique-panels" data-om-id="94b23303:291">
+                        <div class="technique-panel" data-om-id="94b23303:292">
+                            <h3
+                                class="technique-panel-title"
+                                data-om-id="94b23303:293"
+                            >
+                                Wann?
+                            </h3>
+                            <p
+                                class="technique-panel-text"
+                                data-om-id="94b23303:294"
+                            >
+                                Unbekannter Code, vor Änderung Klarheit nötig
+                            </p>
+                        </div>
+                        <div class="technique-panel" data-om-id="94b23303:295">
+                            <h3
+                                class="technique-panel-title"
+                                data-om-id="94b23303:296"
+                            >
+                                Wie?
+                            </h3>
+                            <ol
+                                class="technique-steps"
+                                data-om-id="94b23303:297"
+                            >
+                                <li data-om-id="94b23303:298">
+                                    Erklärung anfragen
+                                </li>
+                                <li data-om-id="94b23303:299">Du validierst</li>
+                                <li data-om-id="94b23303:299a">
+                                    Dann erst Änderung
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="technique-prompt" data-om-id="94b23303:300">
+                        <p
+                            class="technique-prompt-label"
+                            data-om-id="94b23303:301"
+                        >
+                            Beispiel-Prompt
+                        </p>
+                        <p
+                            class="technique-prompt-text"
+                            data-om-id="94b23303:301a"
+                        >
+                            „Erkläre calculateTotal in 5 Bullets: Input, Output,
+                            Edge Cases, Dependencies. Kein Code."
+                        </p>
+                    </div>
+                </div>
+                <div class="footer" data-om-id="94b23303:302">
+                    <span class="logo dark-text" data-om-id="94b23303:303"
+                        >ZwickRoell</span
+                    >
+                </div>
+            </section>
+
+            <!-- Slide 14b: Technik 6 - Spec-Driven -->
+            <section
+                data-label="6. Spec-Driven"
+                data-om-id="94b23303:303a"
+                data-screen-label="17 6. Spec-Driven"
+                data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
+                data-deck-slide="16"
+            >
+                <div
+                    class="content technique-slide technique-slide--6"
+                    data-om-id="94b23303:303b"
+                >
+                    <div class="technique-header" data-om-id="94b23303:303c">
+                        <div
+                            class="technique-header-top"
+                            data-om-id="94b23303:303d"
+                        >
+                            <span
+                                class="technique-badge"
+                                data-om-id="94b23303:303e"
+                                >06</span
+                            >
+                            <span
+                                class="technique-label"
+                                data-om-id="94b23303:303f"
+                                >Spec-Driven</span
+                            >
+                        </div>
+                        <h2
+                            class="technique-tagline"
+                            data-om-id="94b23303:303g"
+                        >
+                            Erst die Spec, dann der Code
+                        </h2>
+                    </div>
+                    <div class="technique-panels" data-om-id="94b23303:303h">
+                        <div class="technique-panel" data-om-id="94b23303:303i">
+                            <h3
+                                class="technique-panel-title"
+                                data-om-id="94b23303:303j"
+                            >
+                                Wann?
+                            </h3>
+                            <p
+                                class="technique-panel-text"
+                                data-om-id="94b23303:303k"
+                            >
+                                Klar definierte Features mit testbaren
+                                Anforderungen
+                            </p>
+                        </div>
+                        <div class="technique-panel" data-om-id="94b23303:303l">
+                            <h3
+                                class="technique-panel-title"
+                                data-om-id="94b23303:303m"
+                            >
+                                Wie?
+                            </h3>
+                            <ol
+                                class="technique-steps"
+                                data-om-id="94b23303:303n"
+                            >
+                                <li data-om-id="94b23303:303o">
+                                    Akzeptanzkriterien schreiben
+                                </li>
+                                <li data-om-id="94b23303:303p">
+                                    KI implementiert danach
+                                </li>
+                                <li data-om-id="94b23303:303q">
+                                    Output gegen Spec prüfen
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="technique-prompt" data-om-id="94b23303:303r">
+                        <p
+                            class="technique-prompt-label"
+                            data-om-id="94b23303:303s"
+                        >
+                            Beispiel-Prompt
+                        </p>
+                        <p
+                            class="technique-prompt-text"
+                            data-om-id="94b23303:303t"
+                        >
+                            „Implementiere nach dieser Spec: Gegeben leerer
+                            Warenkorb, wenn Artikel hinzugefügt, dann Summe =
+                            Preis. Erfülle alle 3 Kriterien."
+                        </p>
+                    </div>
+                </div>
+                <div class="footer" data-om-id="94b23303:303u">
+                    <span class="logo dark-text" data-om-id="94b23303:303v"
+                        >ZwickRoell</span
+                    >
+                </div>
+            </section>
+
+            <!-- Slide 14c: Technik 7 - Few-Shot -->
+            <section
+                data-label="7. Few-Shot"
+                data-om-id="94b23303:304a"
+                data-screen-label="18 7. Few-Shot"
+                data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
+                data-deck-slide="17"
+            >
+                <div
+                    class="content technique-slide technique-slide--7"
+                    data-om-id="94b23303:304b"
+                >
+                    <div class="technique-header" data-om-id="94b23303:304c">
+                        <div
+                            class="technique-header-top"
+                            data-om-id="94b23303:304d"
+                        >
+                            <span
+                                class="technique-badge"
+                                data-om-id="94b23303:304e"
+                                >07</span
+                            >
+                            <span
+                                class="technique-label"
+                                data-om-id="94b23303:304f"
+                                >Few-Shot</span
+                            >
+                        </div>
+                        <h2
+                            class="technique-tagline"
+                            data-om-id="94b23303:304g"
+                        >
+                            Zeig der KI ein Beispiel aus deinem Code
+                        </h2>
+                    </div>
+                    <div class="technique-panels" data-om-id="94b23303:304h">
+                        <div class="technique-panel" data-om-id="94b23303:304i">
+                            <h3
+                                class="technique-panel-title"
+                                data-om-id="94b23303:304j"
+                            >
+                                Wann?
+                            </h3>
+                            <p
+                                class="technique-panel-text"
+                                data-om-id="94b23303:304k"
+                            >
+                                Konsistenz mit bestehenden Patterns ist wichtig
+                            </p>
+                        </div>
+                        <div class="technique-panel" data-om-id="94b23303:304l">
+                            <h3
+                                class="technique-panel-title"
+                                data-om-id="94b23303:304m"
+                            >
+                                Wie?
+                            </h3>
+                            <ol
+                                class="technique-steps"
+                                data-om-id="94b23303:304n"
+                            >
+                                <li data-om-id="94b23303:304o">
+                                    Bestehendes Pattern als Beispiel
+                                </li>
+                                <li data-om-id="94b23303:304p">
+                                    „Mach es genauso"
+                                </li>
+                                <li data-om-id="94b23303:304q">
+                                    Stil bleibt konsistent
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="technique-prompt" data-om-id="94b23303:304r">
+                        <p
+                            class="technique-prompt-label"
+                            data-om-id="94b23303:304s"
+                        >
+                            Beispiel-Prompt
+                        </p>
+                        <p
+                            class="technique-prompt-text"
+                            data-om-id="94b23303:304t"
+                        >
+                            „Schreib den neuen PaymentService genau im Stil von
+                            UserService.js — gleiche Struktur, gleiche
+                            Fehlerbehandlung."
+                        </p>
+                    </div>
+                </div>
+                <div class="footer" data-om-id="94b23303:304u">
+                    <span class="logo dark-text" data-om-id="94b23303:304v"
+                        >ZwickRoell</span
+                    >
+                </div>
+            </section>
+
+            <!-- Slide 14d: Technik 8 - Red-Team -->
+            <section
+                data-label="8. Red-Team"
+                data-om-id="94b23303:305a"
+                data-screen-label="19 8. Red-Team"
+                data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
+                data-deck-slide="18"
+            >
+                <div
+                    class="content technique-slide technique-slide--8"
+                    data-om-id="94b23303:305b"
+                >
+                    <div class="technique-header" data-om-id="94b23303:305c">
+                        <div
+                            class="technique-header-top"
+                            data-om-id="94b23303:305d"
+                        >
+                            <span
+                                class="technique-badge"
+                                data-om-id="94b23303:305e"
+                                >08</span
+                            >
+                            <span
+                                class="technique-label"
+                                data-om-id="94b23303:305f"
+                                >Red-Team</span
+                            >
+                        </div>
+                        <h2
+                            class="technique-tagline"
+                            data-om-id="94b23303:305g"
+                        >
+                            Lass die KI ihren eigenen Code angreifen
+                        </h2>
+                    </div>
+                    <div class="technique-panels" data-om-id="94b23303:305h">
+                        <div class="technique-panel" data-om-id="94b23303:305i">
+                            <h3
+                                class="technique-panel-title"
+                                data-om-id="94b23303:305j"
+                            >
+                                Wann?
+                            </h3>
+                            <p
+                                class="technique-panel-text"
+                                data-om-id="94b23303:305k"
+                            >
+                                Vor dem Merge, bei kritischem oder
+                                sicherheitsrelevantem Code
+                            </p>
+                        </div>
+                        <div class="technique-panel" data-om-id="94b23303:305l">
+                            <h3
+                                class="technique-panel-title"
+                                data-om-id="94b23303:305m"
+                            >
+                                Wie?
+                            </h3>
+                            <ol
+                                class="technique-steps"
+                                data-om-id="94b23303:305n"
+                            >
+                                <li data-om-id="94b23303:305o">
+                                    Lösung generieren lassen
+                                </li>
+                                <li data-om-id="94b23303:305p">
+                                    „Finde 3 Schwächen"
+                                </li>
+                                <li data-om-id="94b23303:305q">
+                                    Fixes bewerten & übernehmen
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="technique-prompt" data-om-id="94b23303:305r">
+                        <p
+                            class="technique-prompt-label"
+                            data-om-id="94b23303:305s"
+                        >
+                            Beispiel-Prompt
+                        </p>
+                        <p
+                            class="technique-prompt-text"
+                            data-om-id="94b23303:305t"
+                        >
+                            „Finde 3 Schwachstellen in dieser Lösung: Security,
+                            Edge Cases, Performance. Sei kritisch, beschönige
+                            nichts."
+                        </p>
+                    </div>
+                </div>
+                <div class="footer" data-om-id="94b23303:305u">
+                    <span class="logo dark-text" data-om-id="94b23303:305v"
+                        >ZwickRoell</span
+                    >
+                </div>
+            </section>
+
+            <!-- ÜBUNG 3 -->
+            <section
+                data-label="ÜBUNG 3: Techniken live testen"
+                class="dark"
+                data-om-id="94b23303:304"
+                data-screen-label="20 ÜBUNG 3: Techniken live testen"
+                data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
+                data-deck-slide="19"
+            >
+                <div class="content exercise-3" data-om-id="94b23303:305">
+                    <div>
+                        <div class="exercise-label" data-om-id="94b23303:306">
+                            🧑‍💻 ÜBUNG 3
+                        </div>
+                        <h2
+                            style="
+                                font-size: 46px;
+                                color: #fff;
+                                margin-bottom: 0;
+                            "
+                            data-om-id="94b23303:307"
+                        >
+                            2–3 Techniken live ausprobieren
+                        </h2>
+                        <div class="exercise-3-body" data-om-id="94b23303:308">
+                            <p
+                                class="exercise-3-meta"
+                                data-om-id="94b23303:309"
+                            >
+                                15 Min Arbeit · 3 Min Debrief · Paar oder Einzel
+                                · Anknüpfung an Übung 1+2
+                            </p>
+
+                            <div
+                                class="exercise-3-context"
+                                data-om-id="94b23303:309a"
+                            >
+                                <p
+                                    class="exercise-3-context-label"
+                                    data-om-id="94b23303:309b"
+                                >
+                                    Eigene Aufgabe wählen:
+                                </p>
+                                <p
+                                    class="exercise-3-context-text"
+                                    data-om-id="94b23303:309c"
+                                >
+                                    <code style="color: var(--accent)"
+                                        >exercises/ex-1/</code
+                                    >
+                                    oder eigener Code — markiert die Stelle, an
+                                    der ihr etwas ändern, verstehen oder
+                                    verbessern wollt · Agent/Copilot öffnen
+                                </p>
+                            </div>
+
+                            <div
+                                class="exercise-3-steps"
+                                data-om-id="94b23303:309d"
+                            >
+                                <div
+                                    class="exercise-3-step"
+                                    data-om-id="94b23303:309e"
+                                >
+                                    <p
+                                        class="exercise-3-step-num"
+                                        data-om-id="94b23303:309f"
+                                    >
+                                        SCHRITT 1
+                                    </p>
+                                    <p
+                                        class="exercise-3-step-text"
+                                        data-om-id="94b23303:309g"
+                                    >
+                                        Wählt
+                                        <strong style="color: #fff"
+                                            >2–3 Techniken</strong
+                                        >
+                                        und
+                                        <strong style="color: #fff"
+                                            >eure Aufgabe</strong
+                                        >
+                                        — Refactoring, Tests, Bug, Erklärung,
+                                        Review …
+                                    </p>
+                                </div>
+                                <div
+                                    class="exercise-3-step"
+                                    data-om-id="94b23303:309h"
+                                >
+                                    <p
+                                        class="exercise-3-step-num"
+                                        data-om-id="94b23303:309i"
+                                    >
+                                        SCHRITT 2
+                                    </p>
+                                    <p
+                                        class="exercise-3-step-text"
+                                        data-om-id="94b23303:309j"
+                                    >
+                                        Führt den
+                                        <strong style="color: #fff"
+                                            >Starter-Prompt</strong
+                                        >
+                                        je Technik aus. Passt ihn bei Bedarf an
+                                        — Technik bleibt erkennbar.
+                                    </p>
+                                </div>
+                                <div
+                                    class="exercise-3-step"
+                                    data-om-id="94b23303:309k"
+                                >
+                                    <p
+                                        class="exercise-3-step-num"
+                                        data-om-id="94b23303:309l"
+                                    >
+                                        SCHRITT 3
+                                    </p>
+                                    <p
+                                        class="exercise-3-step-text"
+                                        data-om-id="94b23303:309m"
+                                    >
+                                        Vergleicht:
+                                        <strong style="color: #fff"
+                                            >Was liefert jede Technik
+                                            anders?</strong
+                                        >
+                                        Welche passt am besten zu eurer Aufgabe?
+                                    </p>
+                                </div>
+                            </div>
+
+                            <p
+                                class="exercise-3-picks-label"
+                                data-om-id="94b23303:310"
+                            >
+                                Starter-Prompts als Vorlage — auf eure Aufgabe
+                                anpassen:
+                            </p>
+                            <div
+                                class="exercise-3-picks"
+                                data-om-id="94b23303:311"
+                            >
+                                <div
+                                    class="exercise-3-pick exercise-3-pick--1"
+                                    data-om-id="94b23303:311a"
+                                >
+                                    <div class="exercise-3-pick-head">
+                                        <span class="exercise-3-pick-num"
+                                            >01</span
+                                        >
+                                        <p class="exercise-3-pick-name">
+                                            Plan-First
+                                        </p>
+                                    </div>
+                                    <p class="exercise-3-pick-prompt">
+                                        „Plan für [eure Aufgabe]. 6 Schritte.
+                                        Kein Code. Risiken?"
+                                    </p>
+                                </div>
+                                <div
+                                    class="exercise-3-pick exercise-3-pick--2"
+                                    data-om-id="94b23303:311b"
+                                >
+                                    <div class="exercise-3-pick-head">
+                                        <span class="exercise-3-pick-num"
+                                            >02</span
+                                        >
+                                        <p class="exercise-3-pick-name">
+                                            Test-Driven
+                                        </p>
+                                    </div>
+                                    <p class="exercise-3-pick-prompt">
+                                        „Tests für [markierte Logik]. AAA,
+                                        node:test. Happy, Edge, Error. Nur
+                                        Tests."
+                                    </p>
+                                </div>
+                                <div
+                                    class="exercise-3-pick exercise-3-pick--3"
+                                    data-om-id="94b23303:311c"
+                                >
+                                    <div class="exercise-3-pick-head">
+                                        <span class="exercise-3-pick-num"
+                                            >03</span
+                                        >
+                                        <p class="exercise-3-pick-name">
+                                            Review-First
+                                        </p>
+                                    </div>
+                                    <p class="exercise-3-pick-prompt">
+                                        „Review [markierte Stelle]. Risiken?
+                                        Fehlende Tests? Intent? Kein Code
+                                        ändern."
+                                    </p>
+                                </div>
+                                <div
+                                    class="exercise-3-pick exercise-3-pick--4"
+                                    data-om-id="94b23303:311d"
+                                >
+                                    <div class="exercise-3-pick-head">
+                                        <span class="exercise-3-pick-num"
+                                            >04</span
+                                        >
+                                        <p class="exercise-3-pick-name">
+                                            Rubber-Duck
+                                        </p>
+                                    </div>
+                                    <p class="exercise-3-pick-prompt">
+                                        „Leeres Array → 4,99 statt 0. Ist das
+                                        Bug oder Feature? Top-3 Hypothesen +
+                                        Prüf-Steps."
+                                    </p>
+                                </div>
+                                <div
+                                    class="exercise-3-pick exercise-3-pick--5"
+                                    data-om-id="94b23303:311e"
+                                >
+                                    <div class="exercise-3-pick-head">
+                                        <span class="exercise-3-pick-num"
+                                            >05</span
+                                        >
+                                        <p class="exercise-3-pick-name">
+                                            Explain-Before
+                                        </p>
+                                    </div>
+                                    <p class="exercise-3-pick-prompt">
+                                        „Erkläre [markierte Stelle] in 5
+                                        Bullets: Input, Output, Edge Cases. Kein
+                                        Code."
+                                    </p>
+                                </div>
+                                <div
+                                    class="exercise-3-pick exercise-3-pick--6"
+                                    data-om-id="94b23303:311f"
+                                >
+                                    <div class="exercise-3-pick-head">
+                                        <span class="exercise-3-pick-num"
+                                            >06</span
+                                        >
+                                        <p class="exercise-3-pick-name">
+                                            Spec-Driven
+                                        </p>
+                                    </div>
+                                    <p class="exercise-3-pick-prompt">
+                                        „3 Akzeptanzkriterien für [Aufgabe].
+                                        Dann Umsetzung."
+                                    </p>
+                                </div>
+                                <div
+                                    class="exercise-3-pick exercise-3-pick--7"
+                                    data-om-id="94b23303:311g"
+                                >
+                                    <div class="exercise-3-pick-head">
+                                        <span class="exercise-3-pick-num"
+                                            >07</span
+                                        >
+                                        <p class="exercise-3-pick-name">
+                                            Few-Shot
+                                        </p>
+                                    </div>
+                                    <p class="exercise-3-pick-prompt">
+                                        „[Aufgabe] im Stil von [Beispiel-Datei
+                                        im Repo] — gleiches Pattern."
+                                    </p>
+                                </div>
+                                <div
+                                    class="exercise-3-pick exercise-3-pick--8"
+                                    data-om-id="94b23303:311h"
+                                >
+                                    <div class="exercise-3-pick-head">
+                                        <span class="exercise-3-pick-num"
+                                            >08</span
+                                        >
+                                        <p class="exercise-3-pick-name">
+                                            Red-Team
+                                        </p>
+                                    </div>
+                                    <p class="exercise-3-pick-prompt">
+                                        „Finde 3 Schwächen in [eurem
+                                        Output/Code]. Security, Edge Cases,
+                                        Lücken."
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="exercise-3-footer"
+                                data-om-id="94b23303:314"
+                            >
+                                <p data-om-id="94b23303:314a">
+                                    <strong style="color: #8fd4c8"
+                                        >Debrief-Frage:</strong
+                                    >
+                                    Welche Technik hat den größten Unterschied
+                                    gemacht? ·
+                                    <strong style="color: #fff"
+                                        >Optional:</strong
+                                    >
+                                    besten Prompt im Team teilen
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer" data-om-id="94b23303:315">
+                    <span class="logo" data-om-id="94b23303:316"
+                        >ZwickRoell</span
+                    >
+                </div>
+            </section>
+
+            <!-- Slide: Vertrauen durch Review (vor Zusammenfassung) -->
             <section
                 data-label="Vertrauen durch Review"
                 class="light"
                 data-om-id="94b23303:189"
-                data-screen-label="11 Vertrauen durch Review"
+                data-screen-label="21 Vertrauen durch Review"
                 data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
-                data-deck-slide="10"
+                data-deck-slide="20"
             >
                 <div class="content" data-om-id="94b23303:190">
                     <h2 data-om-id="94b23303:191" style="margin-bottom: 10px">
@@ -3828,1201 +5130,6 @@
                 </div>
                 <div class="footer" data-om-id="94b23303:210">
                     <span class="logo dark-text" data-om-id="94b23303:211"
-                        >ZwickRoell</span
-                    >
-                </div>
-            </section>
-
-            <!-- Slide 9: 8 Arbeitsweisen Intro -->
-            <section
-                data-label="8 konkrete Arbeitsweisen"
-                class="dark"
-                data-om-id="94b23303:212"
-                data-screen-label="12 8 konkrete Arbeitsweisen"
-                data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
-                data-deck-slide="11"
-            >
-                <div class="content techniques-intro" data-om-id="94b23303:213">
-                    <div
-                        class="techniques-intro-header"
-                        data-om-id="94b23303:213a"
-                    >
-                        <div class="section-label" data-om-id="94b23303:213b">
-                            ⚡ Situationsbasiert
-                        </div>
-                        <h2
-                            class="techniques-intro-title"
-                            data-om-id="94b23303:214"
-                        >
-                            <span class="num">8</span> konkrete Arbeitsweisen
-                        </h2>
-                        <p
-                            class="techniques-intro-subtitle"
-                            data-om-id="94b23303:215"
-                        >
-                            Je nach Situation brauchst du eine andere
-                            Strategie.<br data-om-id="94b23303:216" />
-                            Hier sind die 8 wichtigsten für deinen Alltag.
-                        </p>
-                    </div>
-
-                    <div class="techniques-overview" data-om-id="94b23303:215a">
-                        <div
-                            class="technique-chip technique-chip--1"
-                            data-om-id="94b23303:215b"
-                        >
-                            <p class="technique-chip-num">01</p>
-                            <p class="technique-chip-name">Plan-First</p>
-                            <p class="technique-chip-when">
-                                Größere Features, mehrere Dateien
-                            </p>
-                        </div>
-                        <div
-                            class="technique-chip technique-chip--2"
-                            data-om-id="94b23303:215c"
-                        >
-                            <p class="technique-chip-num">02</p>
-                            <p class="technique-chip-name">Test-Driven</p>
-                            <p class="technique-chip-when">
-                                Neue Logik, Regression vermeiden
-                            </p>
-                        </div>
-                        <div
-                            class="technique-chip technique-chip--3"
-                            data-om-id="94b23303:215d"
-                        >
-                            <p class="technique-chip-num">03</p>
-                            <p class="technique-chip-name">Review-First</p>
-                            <p class="technique-chip-when">
-                                Legacy-Code, hohes Risiko
-                            </p>
-                        </div>
-                        <div
-                            class="technique-chip technique-chip--4"
-                            data-om-id="94b23303:215e"
-                        >
-                            <p class="technique-chip-num">04</p>
-                            <p class="technique-chip-name">Rubber-Duck</p>
-                            <p class="technique-chip-when">
-                                Bugs, flaky Tests, Symptome
-                            </p>
-                        </div>
-                        <div
-                            class="technique-chip technique-chip--5"
-                            data-om-id="94b23303:215f"
-                        >
-                            <p class="technique-chip-num">05</p>
-                            <p class="technique-chip-name">
-                                Explain-Before-Change
-                            </p>
-                            <p class="technique-chip-when">
-                                Unbekannter Code, Klarheit nötig
-                            </p>
-                        </div>
-                        <div
-                            class="technique-chip technique-chip--6"
-                            data-om-id="94b23303:215g"
-                        >
-                            <p class="technique-chip-num">06</p>
-                            <p class="technique-chip-name">Spec-Driven</p>
-                            <p class="technique-chip-when">
-                                Klar definierte, testbare Features
-                            </p>
-                        </div>
-                        <div
-                            class="technique-chip technique-chip--7"
-                            data-om-id="94b23303:215h"
-                        >
-                            <p class="technique-chip-num">07</p>
-                            <p class="technique-chip-name">Few-Shot</p>
-                            <p class="technique-chip-when">
-                                Konsistenz mit bestehenden Patterns
-                            </p>
-                        </div>
-                        <div
-                            class="technique-chip technique-chip--8"
-                            data-om-id="94b23303:215i"
-                        >
-                            <p class="technique-chip-num">08</p>
-                            <p class="technique-chip-name">Red-Team</p>
-                            <p class="technique-chip-when">
-                                Vor dem Merge, kritischer Code
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer" data-om-id="94b23303:217">
-                    <span class="logo" data-om-id="94b23303:218"
-                        >ZwickRoell</span
-                    >
-                </div>
-            </section>
-
-            <!-- Slide 10: Technik 1 - Plan-First -->
-            <section
-                data-label="1. Plan-First"
-                data-om-id="94b23303:219"
-                data-screen-label="13 1. Plan-First"
-                data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
-                data-deck-slide="12"
-            >
-                <div
-                    class="content technique-slide technique-slide--1"
-                    data-om-id="94b23303:220"
-                >
-                    <div class="technique-header" data-om-id="94b23303:220a">
-                        <div
-                            class="technique-header-top"
-                            data-om-id="94b23303:221"
-                        >
-                            <span
-                                class="technique-badge"
-                                data-om-id="94b23303:221a"
-                                >01</span
-                            >
-                            <span
-                                class="technique-label"
-                                data-om-id="94b23303:221b"
-                                >Plan-First</span
-                            >
-                        </div>
-                        <h2 class="technique-tagline" data-om-id="94b23303:222">
-                            Größere Features: erst planen, dann coden
-                        </h2>
-                    </div>
-                    <div class="technique-panels" data-om-id="94b23303:223">
-                        <div class="technique-panel" data-om-id="94b23303:224">
-                            <h3
-                                class="technique-panel-title"
-                                data-om-id="94b23303:225"
-                            >
-                                Wann?
-                            </h3>
-                            <p
-                                class="technique-panel-text"
-                                data-om-id="94b23303:226"
-                            >
-                                Mehrere Dateien, unklarer Lösungsweg, komplexes
-                                Feature
-                            </p>
-                        </div>
-                        <div class="technique-panel" data-om-id="94b23303:227">
-                            <h3
-                                class="technique-panel-title"
-                                data-om-id="94b23303:228"
-                            >
-                                Wie?
-                            </h3>
-                            <ol
-                                class="technique-steps"
-                                data-om-id="94b23303:229"
-                            >
-                                <li data-om-id="94b23303:230">Plan anfragen</li>
-                                <li data-om-id="94b23303:231">Du prüfst</li>
-                                <li data-om-id="94b23303:231a">
-                                    Code Step by Step
-                                </li>
-                            </ol>
-                        </div>
-                    </div>
-                    <div class="technique-prompt" data-om-id="94b23303:232">
-                        <p
-                            class="technique-prompt-label"
-                            data-om-id="94b23303:233"
-                        >
-                            Beispiel-Prompt
-                        </p>
-                        <p
-                            class="technique-prompt-text"
-                            data-om-id="94b23303:233a"
-                        >
-                            „Plan für Feature X in Datei Y. 8 nummerierte
-                            Schritte. Kein Code. Risiken?"
-                        </p>
-                    </div>
-                </div>
-                <div class="footer" data-om-id="94b23303:234">
-                    <span class="logo dark-text" data-om-id="94b23303:235"
-                        >ZwickRoell</span
-                    >
-                </div>
-            </section>
-
-            <!-- Slide 11: Technik 2 - TDD -->
-            <section
-                data-label="2. TDD"
-                data-om-id="94b23303:236"
-                data-screen-label="14 2. TDD"
-                data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
-                data-deck-slide="13"
-            >
-                <div
-                    class="content technique-slide technique-slide--2"
-                    data-om-id="94b23303:237"
-                >
-                    <div class="technique-header" data-om-id="94b23303:237a">
-                        <div
-                            class="technique-header-top"
-                            data-om-id="94b23303:238"
-                        >
-                            <span
-                                class="technique-badge"
-                                data-om-id="94b23303:238a"
-                                >02</span
-                            >
-                            <span
-                                class="technique-label"
-                                data-om-id="94b23303:238b"
-                                >Test-Driven</span
-                            >
-                        </div>
-                        <h2 class="technique-tagline" data-om-id="94b23303:239">
-                            Tests zuerst, dann Implementierung
-                        </h2>
-                    </div>
-                    <div class="technique-panels" data-om-id="94b23303:240">
-                        <div class="technique-panel" data-om-id="94b23303:241">
-                            <h3
-                                class="technique-panel-title"
-                                data-om-id="94b23303:242"
-                            >
-                                Wann?
-                            </h3>
-                            <p
-                                class="technique-panel-text"
-                                data-om-id="94b23303:243"
-                            >
-                                Neue Logik, wo Tests fehlen, Regression
-                                vermeiden
-                            </p>
-                        </div>
-                        <div class="technique-panel" data-om-id="94b23303:244">
-                            <h3
-                                class="technique-panel-title"
-                                data-om-id="94b23303:245"
-                            >
-                                Wie?
-                            </h3>
-                            <ol
-                                class="technique-steps"
-                                data-om-id="94b23303:246"
-                            >
-                                <li data-om-id="94b23303:247">
-                                    Tests (happy, edge, error)
-                                </li>
-                                <li data-om-id="94b23303:248">
-                                    Implementierung
-                                </li>
-                                <li data-om-id="94b23303:248a">
-                                    Grün = fertig
-                                </li>
-                            </ol>
-                        </div>
-                    </div>
-                    <div class="technique-prompt" data-om-id="94b23303:249">
-                        <p
-                            class="technique-prompt-label"
-                            data-om-id="94b23303:250"
-                        >
-                            Beispiel-Prompt
-                        </p>
-                        <p
-                            class="technique-prompt-text"
-                            data-om-id="94b23303:250a"
-                        >
-                            „Tests für calculateTotal. AAA-Format. Happy, leer,
-                            negativ. node:test. Kein Code außer Tests."
-                        </p>
-                    </div>
-                </div>
-                <div class="footer" data-om-id="94b23303:251">
-                    <span class="logo dark-text" data-om-id="94b23303:252"
-                        >ZwickRoell</span
-                    >
-                </div>
-            </section>
-
-            <!-- Slide 12: Technik 3 - Review-First -->
-            <section
-                data-label="3. Review-First"
-                data-om-id="94b23303:253"
-                data-screen-label="15 3. Review-First"
-                data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
-                data-deck-slide="14"
-            >
-                <div
-                    class="content technique-slide technique-slide--3"
-                    data-om-id="94b23303:254"
-                >
-                    <div class="technique-header" data-om-id="94b23303:254a">
-                        <div
-                            class="technique-header-top"
-                            data-om-id="94b23303:255"
-                        >
-                            <span
-                                class="technique-badge"
-                                data-om-id="94b23303:255a"
-                                >03</span
-                            >
-                            <span
-                                class="technique-label"
-                                data-om-id="94b23303:255b"
-                                >Review-First</span
-                            >
-                        </div>
-                        <h2 class="technique-tagline" data-om-id="94b23303:256">
-                            Legacy-Code: erst reviewen, dann ändern
-                        </h2>
-                    </div>
-                    <div class="technique-panels" data-om-id="94b23303:257">
-                        <div class="technique-panel" data-om-id="94b23303:258">
-                            <h3
-                                class="technique-panel-title"
-                                data-om-id="94b23303:259"
-                            >
-                                Wann?
-                            </h3>
-                            <p
-                                class="technique-panel-text"
-                                data-om-id="94b23303:260"
-                            >
-                                Fremder Code, hohes Risiko, unklare Intent
-                            </p>
-                        </div>
-                        <div class="technique-panel" data-om-id="94b23303:261">
-                            <h3
-                                class="technique-panel-title"
-                                data-om-id="94b23303:262"
-                            >
-                                Wie?
-                            </h3>
-                            <ol
-                                class="technique-steps"
-                                data-om-id="94b23303:263"
-                            >
-                                <li data-om-id="94b23303:264">
-                                    Review (Risiken, Tests, Intent)
-                                </li>
-                                <li data-om-id="94b23303:265">
-                                    Du fragst nach
-                                </li>
-                                <li data-om-id="94b23303:265a">
-                                    Dann gezielte Änderung
-                                </li>
-                            </ol>
-                        </div>
-                    </div>
-                    <div class="technique-prompt" data-om-id="94b23303:266">
-                        <p
-                            class="technique-prompt-label"
-                            data-om-id="94b23303:267"
-                        >
-                            Beispiel-Prompt
-                        </p>
-                        <p
-                            class="technique-prompt-text"
-                            data-om-id="94b23303:267a"
-                        >
-                            „Review Code-Block. Risiken? Fehlende Tests? Intent?
-                            Kein Code ändern."
-                        </p>
-                    </div>
-                </div>
-                <div class="footer" data-om-id="94b23303:268">
-                    <span class="logo dark-text" data-om-id="94b23303:269"
-                        >ZwickRoell</span
-                    >
-                </div>
-            </section>
-
-            <!-- Slide 13: Technik 4 - Rubber-Duck -->
-            <section
-                data-label="4. Rubber-Duck"
-                data-om-id="94b23303:270"
-                data-screen-label="16 4. Rubber-Duck"
-                data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
-                data-deck-slide="15"
-            >
-                <div
-                    class="content technique-slide technique-slide--4"
-                    data-om-id="94b23303:271"
-                >
-                    <div class="technique-header" data-om-id="94b23303:271a">
-                        <div
-                            class="technique-header-top"
-                            data-om-id="94b23303:272"
-                        >
-                            <span
-                                class="technique-badge"
-                                data-om-id="94b23303:272a"
-                                >04</span
-                            >
-                            <span
-                                class="technique-label"
-                                data-om-id="94b23303:272b"
-                                >Rubber-Duck</span
-                            >
-                        </div>
-                        <h2 class="technique-tagline" data-om-id="94b23303:273">
-                            Bugs: Symptom beschreiben, Hypothesen sammeln
-                        </h2>
-                    </div>
-                    <div class="technique-panels" data-om-id="94b23303:274">
-                        <div class="technique-panel" data-om-id="94b23303:275">
-                            <h3
-                                class="technique-panel-title"
-                                data-om-id="94b23303:276"
-                            >
-                                Wann?
-                            </h3>
-                            <p
-                                class="technique-panel-text"
-                                data-om-id="94b23303:277"
-                            >
-                                Bug, flaky Test, unklares Verhalten,
-                                merkwürdiges Symptom
-                            </p>
-                        </div>
-                        <div class="technique-panel" data-om-id="94b23303:278">
-                            <h3
-                                class="technique-panel-title"
-                                data-om-id="94b23303:279"
-                            >
-                                Wie?
-                            </h3>
-                            <ol
-                                class="technique-steps"
-                                data-om-id="94b23303:280"
-                            >
-                                <li data-om-id="94b23303:281">
-                                    Symptom + Kontext
-                                </li>
-                                <li data-om-id="94b23303:282">
-                                    Top-Hypothesen
-                                </li>
-                                <li data-om-id="94b23303:282a">Prüf-Steps</li>
-                            </ol>
-                        </div>
-                    </div>
-                    <div class="technique-prompt" data-om-id="94b23303:283">
-                        <p
-                            class="technique-prompt-label"
-                            data-om-id="94b23303:284"
-                        >
-                            Beispiel-Prompt
-                        </p>
-                        <p
-                            class="technique-prompt-text"
-                            data-om-id="94b23303:284a"
-                        >
-                            „calculateTotal liefert 0 statt Exception. Letzte
-                            Änderung: Rabatt. Top-3 Hypothesen + Prüf-Steps.
-                            Kein Code."
-                        </p>
-                    </div>
-                </div>
-                <div class="footer" data-om-id="94b23303:285">
-                    <span class="logo dark-text" data-om-id="94b23303:286"
-                        >ZwickRoell</span
-                    >
-                </div>
-            </section>
-
-            <!-- Slide 14: Technik 5 - Explain-Before-Change -->
-            <section
-                data-label="5. Explain-Before-Change"
-                data-om-id="94b23303:287"
-                data-screen-label="17 5. Explain-Before-Change"
-                data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
-                data-deck-slide="16"
-            >
-                <div
-                    class="content technique-slide technique-slide--5"
-                    data-om-id="94b23303:288"
-                >
-                    <div class="technique-header" data-om-id="94b23303:288a">
-                        <div
-                            class="technique-header-top"
-                            data-om-id="94b23303:289"
-                        >
-                            <span
-                                class="technique-badge"
-                                data-om-id="94b23303:289a"
-                                >05</span
-                            >
-                            <span
-                                class="technique-label"
-                                data-om-id="94b23303:289b"
-                                >Explain-Before-Change</span
-                            >
-                        </div>
-                        <h2 class="technique-tagline" data-om-id="94b23303:290">
-                            Verständnis vor der Änderung
-                        </h2>
-                    </div>
-                    <div class="technique-panels" data-om-id="94b23303:291">
-                        <div class="technique-panel" data-om-id="94b23303:292">
-                            <h3
-                                class="technique-panel-title"
-                                data-om-id="94b23303:293"
-                            >
-                                Wann?
-                            </h3>
-                            <p
-                                class="technique-panel-text"
-                                data-om-id="94b23303:294"
-                            >
-                                Unbekannter Code, vor Änderung Klarheit nötig
-                            </p>
-                        </div>
-                        <div class="technique-panel" data-om-id="94b23303:295">
-                            <h3
-                                class="technique-panel-title"
-                                data-om-id="94b23303:296"
-                            >
-                                Wie?
-                            </h3>
-                            <ol
-                                class="technique-steps"
-                                data-om-id="94b23303:297"
-                            >
-                                <li data-om-id="94b23303:298">
-                                    Erklärung anfragen
-                                </li>
-                                <li data-om-id="94b23303:299">Du validierst</li>
-                                <li data-om-id="94b23303:299a">
-                                    Dann erst Änderung
-                                </li>
-                            </ol>
-                        </div>
-                    </div>
-                    <div class="technique-prompt" data-om-id="94b23303:300">
-                        <p
-                            class="technique-prompt-label"
-                            data-om-id="94b23303:301"
-                        >
-                            Beispiel-Prompt
-                        </p>
-                        <p
-                            class="technique-prompt-text"
-                            data-om-id="94b23303:301a"
-                        >
-                            „Erkläre calculateTotal in 5 Bullets: Input, Output,
-                            Edge Cases, Dependencies. Kein Code."
-                        </p>
-                    </div>
-                </div>
-                <div class="footer" data-om-id="94b23303:302">
-                    <span class="logo dark-text" data-om-id="94b23303:303"
-                        >ZwickRoell</span
-                    >
-                </div>
-            </section>
-
-            <!-- Slide 14b: Technik 6 - Spec-Driven -->
-            <section
-                data-label="6. Spec-Driven"
-                data-om-id="94b23303:303a"
-                data-screen-label="18 6. Spec-Driven"
-                data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
-                data-deck-slide="17"
-            >
-                <div
-                    class="content technique-slide technique-slide--6"
-                    data-om-id="94b23303:303b"
-                >
-                    <div class="technique-header" data-om-id="94b23303:303c">
-                        <div
-                            class="technique-header-top"
-                            data-om-id="94b23303:303d"
-                        >
-                            <span
-                                class="technique-badge"
-                                data-om-id="94b23303:303e"
-                                >06</span
-                            >
-                            <span
-                                class="technique-label"
-                                data-om-id="94b23303:303f"
-                                >Spec-Driven</span
-                            >
-                        </div>
-                        <h2
-                            class="technique-tagline"
-                            data-om-id="94b23303:303g"
-                        >
-                            Erst die Spec, dann der Code
-                        </h2>
-                    </div>
-                    <div class="technique-panels" data-om-id="94b23303:303h">
-                        <div class="technique-panel" data-om-id="94b23303:303i">
-                            <h3
-                                class="technique-panel-title"
-                                data-om-id="94b23303:303j"
-                            >
-                                Wann?
-                            </h3>
-                            <p
-                                class="technique-panel-text"
-                                data-om-id="94b23303:303k"
-                            >
-                                Klar definierte Features mit testbaren
-                                Anforderungen
-                            </p>
-                        </div>
-                        <div class="technique-panel" data-om-id="94b23303:303l">
-                            <h3
-                                class="technique-panel-title"
-                                data-om-id="94b23303:303m"
-                            >
-                                Wie?
-                            </h3>
-                            <ol
-                                class="technique-steps"
-                                data-om-id="94b23303:303n"
-                            >
-                                <li data-om-id="94b23303:303o">
-                                    Akzeptanzkriterien schreiben
-                                </li>
-                                <li data-om-id="94b23303:303p">
-                                    KI implementiert danach
-                                </li>
-                                <li data-om-id="94b23303:303q">
-                                    Output gegen Spec prüfen
-                                </li>
-                            </ol>
-                        </div>
-                    </div>
-                    <div class="technique-prompt" data-om-id="94b23303:303r">
-                        <p
-                            class="technique-prompt-label"
-                            data-om-id="94b23303:303s"
-                        >
-                            Beispiel-Prompt
-                        </p>
-                        <p
-                            class="technique-prompt-text"
-                            data-om-id="94b23303:303t"
-                        >
-                            „Implementiere nach dieser Spec: Gegeben leerer
-                            Warenkorb, wenn Artikel hinzugefügt, dann Summe =
-                            Preis. Erfülle alle 3 Kriterien."
-                        </p>
-                    </div>
-                </div>
-                <div class="footer" data-om-id="94b23303:303u">
-                    <span class="logo dark-text" data-om-id="94b23303:303v"
-                        >ZwickRoell</span
-                    >
-                </div>
-            </section>
-
-            <!-- Slide 14c: Technik 7 - Few-Shot -->
-            <section
-                data-label="7. Few-Shot"
-                data-om-id="94b23303:304a"
-                data-screen-label="19 7. Few-Shot"
-                data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
-                data-deck-slide="18"
-            >
-                <div
-                    class="content technique-slide technique-slide--7"
-                    data-om-id="94b23303:304b"
-                >
-                    <div class="technique-header" data-om-id="94b23303:304c">
-                        <div
-                            class="technique-header-top"
-                            data-om-id="94b23303:304d"
-                        >
-                            <span
-                                class="technique-badge"
-                                data-om-id="94b23303:304e"
-                                >07</span
-                            >
-                            <span
-                                class="technique-label"
-                                data-om-id="94b23303:304f"
-                                >Few-Shot</span
-                            >
-                        </div>
-                        <h2
-                            class="technique-tagline"
-                            data-om-id="94b23303:304g"
-                        >
-                            Zeig der KI ein Beispiel aus deinem Code
-                        </h2>
-                    </div>
-                    <div class="technique-panels" data-om-id="94b23303:304h">
-                        <div class="technique-panel" data-om-id="94b23303:304i">
-                            <h3
-                                class="technique-panel-title"
-                                data-om-id="94b23303:304j"
-                            >
-                                Wann?
-                            </h3>
-                            <p
-                                class="technique-panel-text"
-                                data-om-id="94b23303:304k"
-                            >
-                                Konsistenz mit bestehenden Patterns ist wichtig
-                            </p>
-                        </div>
-                        <div class="technique-panel" data-om-id="94b23303:304l">
-                            <h3
-                                class="technique-panel-title"
-                                data-om-id="94b23303:304m"
-                            >
-                                Wie?
-                            </h3>
-                            <ol
-                                class="technique-steps"
-                                data-om-id="94b23303:304n"
-                            >
-                                <li data-om-id="94b23303:304o">
-                                    Bestehendes Pattern als Beispiel
-                                </li>
-                                <li data-om-id="94b23303:304p">
-                                    „Mach es genauso"
-                                </li>
-                                <li data-om-id="94b23303:304q">
-                                    Stil bleibt konsistent
-                                </li>
-                            </ol>
-                        </div>
-                    </div>
-                    <div class="technique-prompt" data-om-id="94b23303:304r">
-                        <p
-                            class="technique-prompt-label"
-                            data-om-id="94b23303:304s"
-                        >
-                            Beispiel-Prompt
-                        </p>
-                        <p
-                            class="technique-prompt-text"
-                            data-om-id="94b23303:304t"
-                        >
-                            „Schreib den neuen PaymentService genau im Stil von
-                            UserService.js — gleiche Struktur, gleiche
-                            Fehlerbehandlung."
-                        </p>
-                    </div>
-                </div>
-                <div class="footer" data-om-id="94b23303:304u">
-                    <span class="logo dark-text" data-om-id="94b23303:304v"
-                        >ZwickRoell</span
-                    >
-                </div>
-            </section>
-
-            <!-- Slide 14d: Technik 8 - Red-Team -->
-            <section
-                data-label="8. Red-Team"
-                data-om-id="94b23303:305a"
-                data-screen-label="20 8. Red-Team"
-                data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
-                data-deck-slide="19"
-            >
-                <div
-                    class="content technique-slide technique-slide--8"
-                    data-om-id="94b23303:305b"
-                >
-                    <div class="technique-header" data-om-id="94b23303:305c">
-                        <div
-                            class="technique-header-top"
-                            data-om-id="94b23303:305d"
-                        >
-                            <span
-                                class="technique-badge"
-                                data-om-id="94b23303:305e"
-                                >08</span
-                            >
-                            <span
-                                class="technique-label"
-                                data-om-id="94b23303:305f"
-                                >Red-Team</span
-                            >
-                        </div>
-                        <h2
-                            class="technique-tagline"
-                            data-om-id="94b23303:305g"
-                        >
-                            Lass die KI ihren eigenen Code angreifen
-                        </h2>
-                    </div>
-                    <div class="technique-panels" data-om-id="94b23303:305h">
-                        <div class="technique-panel" data-om-id="94b23303:305i">
-                            <h3
-                                class="technique-panel-title"
-                                data-om-id="94b23303:305j"
-                            >
-                                Wann?
-                            </h3>
-                            <p
-                                class="technique-panel-text"
-                                data-om-id="94b23303:305k"
-                            >
-                                Vor dem Merge, bei kritischem oder
-                                sicherheitsrelevantem Code
-                            </p>
-                        </div>
-                        <div class="technique-panel" data-om-id="94b23303:305l">
-                            <h3
-                                class="technique-panel-title"
-                                data-om-id="94b23303:305m"
-                            >
-                                Wie?
-                            </h3>
-                            <ol
-                                class="technique-steps"
-                                data-om-id="94b23303:305n"
-                            >
-                                <li data-om-id="94b23303:305o">
-                                    Lösung generieren lassen
-                                </li>
-                                <li data-om-id="94b23303:305p">
-                                    „Finde 3 Schwächen"
-                                </li>
-                                <li data-om-id="94b23303:305q">
-                                    Fixes bewerten & übernehmen
-                                </li>
-                            </ol>
-                        </div>
-                    </div>
-                    <div class="technique-prompt" data-om-id="94b23303:305r">
-                        <p
-                            class="technique-prompt-label"
-                            data-om-id="94b23303:305s"
-                        >
-                            Beispiel-Prompt
-                        </p>
-                        <p
-                            class="technique-prompt-text"
-                            data-om-id="94b23303:305t"
-                        >
-                            „Finde 3 Schwachstellen in dieser Lösung: Security,
-                            Edge Cases, Performance. Sei kritisch, beschönige
-                            nichts."
-                        </p>
-                    </div>
-                </div>
-                <div class="footer" data-om-id="94b23303:305u">
-                    <span class="logo dark-text" data-om-id="94b23303:305v"
-                        >ZwickRoell</span
-                    >
-                </div>
-            </section>
-
-            <!-- ÜBUNG 3 -->
-            <section
-                data-label="ÜBUNG 3: Techniken live testen"
-                class="dark"
-                data-om-id="94b23303:304"
-                data-screen-label="21 ÜBUNG 3: Techniken live testen"
-                data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
-                data-deck-slide="20"
-            >
-                <div class="content exercise-3" data-om-id="94b23303:305">
-                    <div>
-                        <div class="exercise-label" data-om-id="94b23303:306">
-                            🧑‍💻 ÜBUNG 3
-                        </div>
-                        <h2
-                            style="
-                                font-size: 46px;
-                                color: #fff;
-                                margin-bottom: 0;
-                            "
-                            data-om-id="94b23303:307"
-                        >
-                            2–3 Techniken live ausprobieren
-                        </h2>
-                        <div class="exercise-3-body" data-om-id="94b23303:308">
-                            <p
-                                class="exercise-3-meta"
-                                data-om-id="94b23303:309"
-                            >
-                                15 Min Arbeit · 3 Min Debrief · Paar oder Einzel
-                                · Anknüpfung an Übung 1+2
-                            </p>
-
-                            <div
-                                class="exercise-3-context"
-                                data-om-id="94b23303:309a"
-                            >
-                                <p
-                                    class="exercise-3-context-label"
-                                    data-om-id="94b23303:309b"
-                                >
-                                    Gleiche Aufgabe — anderer Ansatz:
-                                </p>
-                                <p
-                                    class="exercise-3-context-text"
-                                    data-om-id="94b23303:309c"
-                                >
-                                    <code style="color: var(--accent)"
-                                        >exercises/ex-1/</code
-                                    >
-                                    ·
-                                    <code style="color: #ddd"
-                                        >calculateTotal()</code
-                                    >
-                                    markieren · Agent/Copilot öffnen
-                                </p>
-                            </div>
-
-                            <div
-                                class="exercise-3-steps"
-                                data-om-id="94b23303:309d"
-                            >
-                                <div
-                                    class="exercise-3-step"
-                                    data-om-id="94b23303:309e"
-                                >
-                                    <p
-                                        class="exercise-3-step-num"
-                                        data-om-id="94b23303:309f"
-                                    >
-                                        SCHRITT 1
-                                    </p>
-                                    <p
-                                        class="exercise-3-step-text"
-                                        data-om-id="94b23303:309g"
-                                    >
-                                        Wählt
-                                        <strong style="color: #fff"
-                                            >2–3 Techniken</strong
-                                        >
-                                        aus dem Raster — unterschiedliche, nicht
-                                        dieselbe zweimal.
-                                    </p>
-                                </div>
-                                <div
-                                    class="exercise-3-step"
-                                    data-om-id="94b23303:309h"
-                                >
-                                    <p
-                                        class="exercise-3-step-num"
-                                        data-om-id="94b23303:309i"
-                                    >
-                                        SCHRITT 2
-                                    </p>
-                                    <p
-                                        class="exercise-3-step-text"
-                                        data-om-id="94b23303:309j"
-                                    >
-                                        Führt den
-                                        <strong style="color: #fff"
-                                            >Starter-Prompt</strong
-                                        >
-                                        je Technik aus. Passt ihn bei Bedarf an
-                                        — Technik bleibt erkennbar.
-                                    </p>
-                                </div>
-                                <div
-                                    class="exercise-3-step"
-                                    data-om-id="94b23303:309k"
-                                >
-                                    <p
-                                        class="exercise-3-step-num"
-                                        data-om-id="94b23303:309l"
-                                    >
-                                        SCHRITT 3
-                                    </p>
-                                    <p
-                                        class="exercise-3-step-text"
-                                        data-om-id="94b23303:309m"
-                                    >
-                                        Vergleicht Outputs:
-                                        <strong style="color: #fff"
-                                            >Was liefert die Technik
-                                            anders</strong
-                                        >
-                                        als euer CRAFT-Prompt aus Übung 2?
-                                    </p>
-                                </div>
-                            </div>
-
-                            <p
-                                class="exercise-3-picks-label"
-                                data-om-id="94b23303:310"
-                            >
-                                Starter-Prompts — direkt kopieren &amp;
-                                ausführen:
-                            </p>
-                            <div
-                                class="exercise-3-picks"
-                                data-om-id="94b23303:311"
-                            >
-                                <div
-                                    class="exercise-3-pick exercise-3-pick--1"
-                                    data-om-id="94b23303:311a"
-                                >
-                                    <div class="exercise-3-pick-head">
-                                        <span class="exercise-3-pick-num"
-                                            >01</span
-                                        >
-                                        <p class="exercise-3-pick-name">
-                                            Plan-First
-                                        </p>
-                                    </div>
-                                    <p class="exercise-3-pick-prompt">
-                                        „Plan für Test-Coverage von
-                                        calculateTotal(). 6 Schritte. Kein Code.
-                                        Risiken?"
-                                    </p>
-                                </div>
-                                <div
-                                    class="exercise-3-pick exercise-3-pick--2"
-                                    data-om-id="94b23303:311b"
-                                >
-                                    <div class="exercise-3-pick-head">
-                                        <span class="exercise-3-pick-num"
-                                            >02</span
-                                        >
-                                        <p class="exercise-3-pick-name">
-                                            Test-Driven
-                                        </p>
-                                    </div>
-                                    <p class="exercise-3-pick-prompt">
-                                        „Tests für calculateTotal. AAA,
-                                        node:test. Happy, leer, negativ,
-                                        Versandfrei. Nur Tests."
-                                    </p>
-                                </div>
-                                <div
-                                    class="exercise-3-pick exercise-3-pick--3"
-                                    data-om-id="94b23303:311c"
-                                >
-                                    <div class="exercise-3-pick-head">
-                                        <span class="exercise-3-pick-num"
-                                            >03</span
-                                        >
-                                        <p class="exercise-3-pick-name">
-                                            Review-First
-                                        </p>
-                                    </div>
-                                    <p class="exercise-3-pick-prompt">
-                                        „Review calculateTotal() Z. 14–33.
-                                        Risiken? Fehlende Tests? Intent? Kein
-                                        Code ändern."
-                                    </p>
-                                </div>
-                                <div
-                                    class="exercise-3-pick exercise-3-pick--4"
-                                    data-om-id="94b23303:311d"
-                                >
-                                    <div class="exercise-3-pick-head">
-                                        <span class="exercise-3-pick-num"
-                                            >04</span
-                                        >
-                                        <p class="exercise-3-pick-name">
-                                            Rubber-Duck
-                                        </p>
-                                    </div>
-                                    <p class="exercise-3-pick-prompt">
-                                        „Leeres Array → 4,99 statt 0. Ist das
-                                        Bug oder Feature? Top-3 Hypothesen +
-                                        Prüf-Steps."
-                                    </p>
-                                </div>
-                                <div
-                                    class="exercise-3-pick exercise-3-pick--5"
-                                    data-om-id="94b23303:311e"
-                                >
-                                    <div class="exercise-3-pick-head">
-                                        <span class="exercise-3-pick-num"
-                                            >05</span
-                                        >
-                                        <p class="exercise-3-pick-name">
-                                            Explain-Before
-                                        </p>
-                                    </div>
-                                    <p class="exercise-3-pick-prompt">
-                                        „Erkläre calculateTotal in 5 Bullets:
-                                        Input, Output, Edge Cases, Versand. Kein
-                                        Code."
-                                    </p>
-                                </div>
-                                <div
-                                    class="exercise-3-pick exercise-3-pick--6"
-                                    data-om-id="94b23303:311f"
-                                >
-                                    <div class="exercise-3-pick-head">
-                                        <span class="exercise-3-pick-num"
-                                            >06</span
-                                        >
-                                        <p class="exercise-3-pick-name">
-                                            Spec-Driven
-                                        </p>
-                                    </div>
-                                    <p class="exercise-3-pick-prompt">
-                                        „3 Akzeptanzkriterien für calculateTotal
-                                        (Rabatt, Versand, leer). Dann Tests
-                                        dazu."
-                                    </p>
-                                </div>
-                                <div
-                                    class="exercise-3-pick exercise-3-pick--7"
-                                    data-om-id="94b23303:311g"
-                                >
-                                    <div class="exercise-3-pick-head">
-                                        <span class="exercise-3-pick-num"
-                                            >07</span
-                                        >
-                                        <p class="exercise-3-pick-name">
-                                            Few-Shot
-                                        </p>
-                                    </div>
-                                    <p class="exercise-3-pick-prompt">
-                                        „Tests für calculateTotal im Stil von
-                                        orderCalculator.test.js — gleiches
-                                        Pattern."
-                                    </p>
-                                </div>
-                                <div
-                                    class="exercise-3-pick exercise-3-pick--8"
-                                    data-om-id="94b23303:311h"
-                                >
-                                    <div class="exercise-3-pick-head">
-                                        <span class="exercise-3-pick-num"
-                                            >08</span
-                                        >
-                                        <p class="exercise-3-pick-name">
-                                            Red-Team
-                                        </p>
-                                    </div>
-                                    <p class="exercise-3-pick-prompt">
-                                        „Finde 3 Schwächen in den Tests für
-                                        calculateTotal. Security, Edge Cases,
-                                        Lücken."
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div
-                                class="exercise-3-footer"
-                                data-om-id="94b23303:314"
-                            >
-                                <p data-om-id="94b23303:314a">
-                                    <strong style="color: #8fd4c8"
-                                        >Debrief-Frage:</strong
-                                    >
-                                    Welche Technik hat den größten Unterschied
-                                    zum CRAFT-Prompt gemacht? ·
-                                    <strong style="color: #fff"
-                                        >Optional:</strong
-                                    >
-                                    Tests übernehmen →
-                                    <code style="color: #ddd"
-                                        >run-tests.bat</code
-                                    >
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer" data-om-id="94b23303:315">
-                    <span class="logo" data-om-id="94b23303:316"
                         >ZwickRoell</span
                     >
                 </div>
@@ -5432,14 +5539,13 @@
                 "Willkommen zur 90-Minuten Session. Heute lernt ihr, wie ihr besser mit KI promptet – praktisch und direkt anwendbar.",
                 "Das Problem: vage Prompts führen zu vagen Outputs. Garbage In, Garbage Out. Wir zeigen euch, wie ihr das beheben könnt.",
                 "Drei konkrete Learnings: GiGo verstehen, CRAFT-Struktur, und Techniken für verschiedene Situationen.",
-                "Kernbotschaft: KI ist kein Zauberstab. Gutes Input = gutes Output. Das ist das ganze Geheimnis.",
+                "Kernbotschaft: KI ist kein Zauberstab — sie liest keine Gedanken, nur Worte. Links: Dev-Missverständnis (kurzer Prompt reicht). Rechts: KI antwortet auf exakte Worte — Beispiele vorlesen. Merke: KIs reagieren nur auf Input — keine Gedanken lesen, nicht zaubern.",
                 "Wie Prompting funktioniert: Euer Prompt wird nie allein verarbeitet. System Prompt + euer Prompt + Kontext (RAG, DB, Git, Logs) = der finale, angereicherte Prompt. Es gibt keinen Agent ohne System Prompt.",
                 "GiGo – Garbage In, Garbage Out. Vager Input ist der Feind eurer Produktivität. Präziser Input ist euer Freund. Beispiel zeigen: vage vs. präzise.",
                 "Übung 1: Repo auschecken, run-tests.bat. Code in exercises/ex-1/, calculateTotal markieren, Prompt make unit tests schärfen. Optional Copilot testen und run-tests.bat erneut. Debrief: Was aus dem Code habt ihr dem Prompt mitgegeben?",
                 "Context is King. Welche Infos braucht die KI? Ziel, Scope, Eingaben, Randbedingungen, Format, Constraints. Das ist die Basis von CRAFT.",
                 "CRAFT-Framework: Context, Role, Action, Format, Constraints. Jeder Buchstabe macht einen Unterschied. Strukturiert = präzise. Beispiel je Buchstabe.",
                 "Übung 2 ankündigen: 15 Minuten Paararbeit. Prompt aus Übung 1 mit allen CRAFT-Bausteinen erweitern. Frage: Was änderte sich durch Struktur vs. nur Schärfen?",
-                "Review ist nicht optional. Outputs von KI sind Vorschläge, keine Wahrheit. Immer kritisch hinterfragen. Review-Prompt vorlesen: Was könnte falsch sein? Welche Edge Cases fehlen?",
                 "8 Arbeitsweisen im Überblick. Je nach Situation eine andere Strategie. Die nächsten Slides zeigen Details zu jeder.",
                 "Plan-First: Bei größeren Features erst den Plan schreiben, dann Code. Spart euch viele Iterationen. Beispiel-Prompt vorlesen.",
                 "TDD – Test-Driven Development: Tests zuerst, dann Implementation. Sicher, dass der Code wirklich funktioniert. Beispiel-Prompt vorlesen.",
@@ -5449,7 +5555,8 @@
                 "Spec-Driven: Erst Akzeptanzkriterien schreiben, dann die KI danach implementieren lassen. Die Spec wird zum Vertrag. Gut für klar definierte Features. Beispiel-Prompt vorlesen.",
                 "Few-Shot: Ein bestehendes Pattern aus eurem Code als Beispiel mitgeben. Hält Konsistenz im Codebase. Der KI sagen: mach es genauso wie diese Datei. Beispiel-Prompt vorlesen.",
                 "Red-Team: KI ihren eigenen Output kritisieren lassen, bevor ihr ihn übernehmt. Finde 3 Schwächen – Security, Edge Cases, Performance. Beispiel-Prompt vorlesen.",
-                "Übung 3: 15 Minuten, 2–3 Techniken live testen. Gleiches Repo ex-1, calculateTotal markieren. Starter-Prompts von der Slide kopieren, im Agent ausführen, mit CRAFT-Prompt aus Übung 2 vergleichen. Debrief: Welche Technik machte den größten Unterschied?",
+                "Übung 3: 15 Minuten, 2–3 Techniken live ausprobieren. Eigene Aufgabe wählen — ex-1 oder eigener Code. Starter-Prompt je Technik ausführen, bei Bedarf anpassen — Technik bleibt erkennbar. Debrief: Welche Technik passte am besten zur Aufgabe?",
+                "Review ist nicht optional. Outputs von KI sind Vorschläge, keine Wahrheit. Immer kritisch hinterfragen. Review-Prompt vorlesen: Was könnte falsch sein? Welche Edge Cases fehlen?",
                 "Zusammenfassung: GiGo, Context, CRAFT, Review, Techniken. Merksatz vorlesen: Klar sagen, was du willst. Ehrlich prüfen, was du bekommst. Die KI ist Werkzeug — du bist Entwickler.",
                 "Fragen? Meldet euch in ZR Teams bei Andreas Schmid. Übungs-Material im Repo github.com/as-zr/ai-ws-prompting — exercises/ auschecken und Übung 1–3 nachspielen.",
                 "Abschluss: Merksatz nochmal vorlesen — Klar sagen, was du willst. Ehrlich prüfen, was du bekommst. Die KI ist Werkzeug — du bist Entwickler. Danke fürs Mitmachen. Übungen im Repo, Fragen in ZR Teams."
